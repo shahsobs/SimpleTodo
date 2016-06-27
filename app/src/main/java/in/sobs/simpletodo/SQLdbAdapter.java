@@ -152,7 +152,7 @@ public class SQLdbAdapter {
             // CREATE TABLE...
             try {
                 db.execSQL(CREATE);
-                L.t(context, "OnCreate was called.");
+//                L.t(context, "OnCreate was called.");
             } catch (SQLException e) {
                 // TODO Auto-generated catch block
                 L.t(context, "" + e);

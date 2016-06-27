@@ -40,18 +40,7 @@ public class MainActivity extends AppCompatActivity {
         items = new ArrayList<>();
         itemsAdapter = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,items);
         lvItems.setAdapter(itemsAdapter);
-        //if app opened for first time
 
-        String[] taskList = {"one","two","three"};
-//        String[] taskList1 = {"one1","two2","three3"};
-        long x=0;
-//        items.addAll(0,myTask);
-        for (String task: taskList ){
-            items.add(task);
-//            helper.insertTask(task);
-            x++;
-        }
-//        L.t(this, Long.toString(x));
         //get taskfrom db
         List<String> taskListdb = helper.readTask(1);
         //get taskID from db
@@ -63,7 +52,7 @@ public class MainActivity extends AppCompatActivity {
 //            items.addAll(taskIddb);
         }
         else{
-            L.t(this,"tasklistDB is EMPTY");
+            L.t(this,"No Task Found!");
         }
 
         setUpListViewListener();
@@ -204,5 +193,6 @@ public class MainActivity extends AppCompatActivity {
     public void deleteAllTask(View view){
         helper.deleteAll();/////////////////////////////// DELETE ALL TASK FROM task TABLE
         L.t(this,"All task were deleted from task TABLE");
+        this.recreate();
     }
 }
